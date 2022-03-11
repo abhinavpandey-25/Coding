@@ -149,7 +149,32 @@ while(!q.isEmpty()) {
 	level++;
 }
 return true;
-}  
+}
+	
+	
+public boolean isEvenOddTreeShortOptimized(TreeNode root) {
+        Queue<TreeNode>q=new LinkedList<>();
+        q.add(root);
+        int l=0;
+         boolean isEven=true;
+        while(!q.isEmpty()){
+            int s=q.size();
+            
+            int prev=isEven?Integer.MIN_VALUE:Integer.MAX_VALUE;
+            
+            while(s>0){
+                TreeNode p=q.remove();
+                if(isEven&&(p.val<=prev||p.val%2==0))return false;
+                else if(!isEven&&(p.val>=prev||p.val%2==1))return false;
+                if(p.left!=null)q.add(p.left);
+                if(p.right!=null)q.add(p.right);
+                prev=p.val;
+                s--;
+            }
+            isEven=!isEven;
+        }
+            return true;
+       }	
 public static void main(String[] args) {
 	
 }
