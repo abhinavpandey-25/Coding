@@ -27,6 +27,7 @@ public class MaxPathSumInaBinaryTreeFromAnyNodeToAnyOtherNode {
 	        //val 2 ko ham sidehe global ans k sath compare krenge 
 	        //as yadhi wo l+r+rot hua toh wo direct root se hi compare hoga
 	        //usme koi parent ki zarurat nhi pdti h
+	  
 	        ans=Math.max(val2,ans);
 	      //  System.out.println(max+" "+ans+" "+val2);
 	        return max;

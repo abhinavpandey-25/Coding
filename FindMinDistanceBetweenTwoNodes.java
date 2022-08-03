@@ -11,6 +11,10 @@ public class FindMinDistanceBetweenTwoNodes {
 	    }
 	} 
 	static int check(Node root,int a){
+		//find the distance from root node to a node with value a
+		
+		//depth tak jao yadi node nhi milta toh zero return krte jao and
+		//jab mil jaye toh +1 hegiht krke reutrn krdo
         if(root==null)return 0;
         if(root.data==a)return 1;
         int l=check(root.left,a);
