@@ -27,6 +27,31 @@ public class TopViewOfBinaryTree {
 	        this.d=d;
 	    }
 	    }
+	    
+	    ArrayList<Integer>ans=new ArrayList<Integer>();
+        //har diff distance k phla bnda is our ans;
+        TreeMap<Integer,Integer>h=new TreeMap<Integer,Integer>(); 
+        Queue<Pair>q=new LinkedList<Pair>();
+        q.add(new Pair(0,root));
+        while(!q.isEmpty()){
+            Pair p=q.remove();
+            if(!h.containsKey(p.d)){
+                h.put(p.d,p.v.data);
+            }
+            if(p.v.left!=null){
+                q.add(new Pair(p.d-1,p.v.left));
+            }
+            if(p.v.right!=null){
+                q.add(new Pair(p.d+1,p.v.right));
+            }
+        }
+        for(int v:h.keySet()){
+            ans.add(h.get(v));
+        }
+        return ans;
+        
+        
+	    
 	    //for more detali look at topviewOfABinary Tree
 	    public List<List<Integer>> verticalTraversal(TreeNode root) {
 	        Queue<Pair>q=new LinkedList<>();
